@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_211415) do
+ActiveRecord::Schema.define(version: 2020_07_28_154434) do
 
   create_table "fridgemates", force: :cascade do |t|
     t.integer "grocery_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_211415) do
     t.integer "quantity"
     t.integer "quality"
     t.integer "cost"
-    t.string "owner"
   end
 
   create_table "roommates", force: :cascade do |t|

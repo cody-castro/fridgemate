@@ -1,4 +1,4 @@
-class FridgeMate < ActiveRecord::Base
+class Fridgemate < ActiveRecord::Base
     belongs_to :roommate
-    belongs_to :groceries
+    belongs_to :grocery
 end
