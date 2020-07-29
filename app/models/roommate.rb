@@ -11,4 +11,19 @@ class Roommate < ActiveRecord::Base
 # end
 
 
+ # self.groceries
+
+
+
+ #   Grocery.all
+
+
+def shared_groceries
+
+end
+
+def add_grocery
+
+end
+
 end
