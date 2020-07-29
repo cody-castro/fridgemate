@@ -33,7 +33,7 @@ Roommates *have many* groceries
 1. As a roommate, I want to see how much of a grocery I have left (Read)
 2. As a roommate, I want to add my groceries to the grocerymate (Create)
 3. As a roommate, I want to to see all the groceries I have in the grocerymate (Read)
-4 .As a roommate, I want to consume a grocery which reflects in the groceries quantity (Update) 
+4. As a roommate, I want to consume a grocery which reflects in the groceries quantity (Update) 
 5. As a roommate I want to be able to toss one of my groceries (Delete)
 6. A roommate should be able to see all their groceries (Read)
 7. As a roommate I should be able to share groceries with another roommate (Update)
