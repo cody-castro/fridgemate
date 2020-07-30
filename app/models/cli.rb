@@ -13,7 +13,7 @@ def create_new_roommate
     allergy = gets.chomp
     puts "What is your Grocery Budget? (Please enter a number 1-500)"
     budget = gets.chomp
-    Roommate.create(name, allergy, budget)
+    roommate = Roommate.create(name: name, allergy: allergy, budget: budget)
     puts "Alrighty! You're all moved in!"
     add_groceries
 end
@@ -31,7 +31,7 @@ def add_groceries
     puts "Does it contain any allergens? pick one: nuts, dairy, gluten"
     grocery_contains = gets.chomp
     puts "Enjoy your #{grocery_name}, #{name}!"
-    Grocery.create(name: grocery_name, quantity: 4, contains: grocery_contains, quality: grocery_quality, cost: grocery_cost, owner = self )
+    grocery = Grocery.create(name: grocery_name, quantity: 4, contains: grocery_contains, quality: grocery_quality, cost: grocery_cost)
 end
 
 def eat_grocery

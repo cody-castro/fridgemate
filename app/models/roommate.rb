@@ -13,27 +13,8 @@ class Roommate < ActiveRecord::Base
 # self.groceries
 #   Grocery.all
 
-    def see_all_groceries 
-        
-    end
-
-    def see_my_groceries
-
-    end
 
     def check_quantity
-
-    end
-
-    def see_shared_groceries
-
-    end
-
-    def share_a_grocery
-        
-    end
-
-    def gift_grocery
 
     end
 
@@ -48,17 +29,4 @@ class Roommate < ActiveRecord::Base
     def eat_grocery
 
     end
-
-    def move_out
-    
-    end
-
-    def steal_grocery 
-        
-    end
-
-    def gift_grocery 
-        
-    end
-
-end
+end 
