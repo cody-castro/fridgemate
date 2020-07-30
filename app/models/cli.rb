@@ -1,37 +1,43 @@
 require 'pry'
 class CLI
 
- def start
-    puts "Welcome to your Fridgemate, please state your name."
+def start
+    puts "          Welcome to fridgemate!"
+    create_new_roommate
+end
+
+def create_new_roommate
+    puts "I see we have a new Roommate, what is you name?"
     name = gets.chomp
-    roommate = Roommate.find_by(name: name)
-    puts "Hey, #{name}! 
-    \n Type 1 to see your own groceries
-    \n Type 2 to see all the groceries in the Fridgemate
-    \n Type 3 to see which groceries are shared
-    \n Type 4 to add a grocery to the Fridgemate"
-    input = gets.chomp
-    if input == 1
-        name.groceries
-    elsif input == 2
-        Grocery.all
-    elsif input == 3
-        name.shared_groceries
-    elsif input == 4
-        puts "What is the name of the grocery?"
-        grocery_name = gets.chomp
-        puts "Which of the following does the grocery contain? (dairy, nuts, gluten)"
-        grocery_contains = gets.chomp
-        puts "How would you rate the quality of this product from 1-5
-        \n 1 being store brand
-        \n 2 being top shelf, highest quality
-        "
-        grocery_quality = gets.chomp
-        puts "How much does this cost, to the nearest dollar? (ex: 5, 10, 15)"
-        grocery_cost = gets.chomp
-        puts "Okay, your grocery is now in the Fridgemate :)"
-    end
+    puts "Do you have any of these allergies, #{name}? (lactose intolerant, nut allergy, gluten free, or none?)"
+    allergy = gets.chomp
+    puts "What is your Grocery Budget? (Please enter a number 1-500)"
+    budget = gets.chomp
+    Roommate.create(name, allergy, budget)
+    puts "Alrighty! You're all moved in!"
+    add_groceries
+end
 
+def add_groceries
+    puts "Looks like you need to go grocery shopping! What's the name of the grocery item you'd like to purchase?"
+    grocery_name = gets.chomp
+    puts "Wow! #{grocery_name} sounds delicious, what's the quality of this grocery (1-5)?\n
+    1 being store brand \n
+    5 being top shelf, highest quality out there \n
+    "
+    grocery_quality = gets.chomp
+    puts "How much does #{grocery_name} cost rounded to the nearest dollar?"
+    grocery_cost = gets.chomp
+    puts "Does it contain any allergens? pick one: nuts, dairy, gluten"
+    grocery_contains = gets.chomp
+    puts "Enjoy your #{grocery_name}, #{name}!"
+    Grocery.create(name: grocery_name, quantity: 4, contains: grocery_contains, quality: grocery_quality, cost: grocery_cost, owner = self )
+end
 
- end
+def eat_grocery
+    puts "Which grocery item would you like to select?"
+    grocery_item = get.chomp
+    # subtract amount from grocery
+end
+
 end
