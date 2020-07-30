@@ -11,13 +11,13 @@ class CLI
     \n Type 3 to see which groceries are shared
     \n Type 4 to add a grocery to the Fridgemate"
     input = gets.chomp
-    if input == 1
+    if input == "1"
         name.groceries
-    elsif input == 2
+    elsif input == "2"
         Grocery.all
-    elsif input == 3
+    elsif input == "3"
         name.shared_groceries
-    elsif input == 4
+    elsif input == "4"
         puts "What is the name of the grocery?"
         grocery_name = gets.chomp
         puts "Which of the following does the grocery contain? (dairy, nuts, gluten)"

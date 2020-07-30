@@ -26,4 +26,10 @@ def add_grocery
 
 end
 
+
+def steal_grocery(grocery) #lowers the quantity of grocery 
+    groceries.select do |grocery| 
+end
+
+
 end
