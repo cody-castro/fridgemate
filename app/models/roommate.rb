@@ -10,25 +10,61 @@ class Roommate < ActiveRecord::Base
 #     roommate = Roommate.find_by(name:"")
 # end
 
+# self.groceries
+#   Grocery.all
 
- # self.groceries
+    def see_all_groceries 
+        
+    end
 
+    def see_my_groceries
 
+    end
 
- #   Grocery.all
+    def check_quantity
 
+    end
 
-def shared_groceries
+    def see_shared_groceries
 
-end
+    end
 
-def add_grocery
+    def share_a_grocery
+        
+    end
 
-end
+    def gift_grocery
+
+    end
+
+    def toss_grocery 
+
+    end
+
+    def add_grocery
+
+    end
+
+    def eat_grocery
+
+    end
+
+    def move_out
+    
+    end
+
+    def steal_grocery 
+        
+    end
+
+    def gift_grocery 
+        
+    end
 
 
 def steal_grocery(grocery) #lowers the quantity of grocery 
     groceries.select do |grocery| 
+    end
 end
 
 
