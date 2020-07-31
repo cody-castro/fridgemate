@@ -20,25 +20,30 @@ class CLI
         puts "\n                                            What is your name?"
         name = gets.chomp
         puts "Thanks, #{name}, Give me a second to scan your biometrics"
+        sleep(1.0)
         puts "\n ."
         puts "\n .."
         puts "\n ..."
         puts "\n ...."
         puts "\n ....."
         puts "\n ......"
+        sleep(0.5)
         puts "\n ......."
         puts "\n ........"
         puts "\n .........."
         puts "\n ........... ALMOST DONE"
+        sleep(1.0)
         puts "\n .........."
         puts "\n ........"
         puts "\n ......."
         puts "\n ......"
         puts "\n ....."
+        sleep(0.5)
         puts "\n ...."
         puts "\n ..."
         puts "\n .."
         puts "\n ."
+        sleep(0.5)
         puts "\n______________SCAN_COMPLETED__________________\n".green
         puts "                     Welcome, #{name}".yellow
         if Roommate.exists?(name: name)
@@ -61,8 +66,9 @@ class CLI
 
     def menu
     puts "          -----------------------------------------------\n"
+    puts ""
     puts "          | What would you like to do with Fridgemate?  |\n"
-    puts "          | Enter 1 to see your groceries               |\n"
+    puts "\n          | Enter 1 to see your groceries               |\n"
     puts "          | Enter 2 to check the quantity of a grocery  |\n"
     puts "          | Enter 3 to toss a grocery                   |\n"
     puts "          | Enter 4 to eat a grocery                    |\n"
@@ -83,6 +89,7 @@ class CLI
             add_groceries
         else
             puts "Sorry that's not an option, try again".red
+            sleep(0.5)
         menu
         end
     end
@@ -132,6 +139,7 @@ class CLI
         grocery_to_eat = Grocery.find_by(name: grocery_item)
         if !grocery_to_eat
             puts "Hey, sorry, I don't think that's a grocery in the fridgemate. Try again?".red
+            sleep(0.5)
             eat_grocery
         else
             grocery_to_eat.update(quantity: grocery_to_eat.quantity - 1)
@@ -173,6 +181,7 @@ class CLI
     | | | | |
     |_______|
                 "
+                sleep(0.5)
                 puts "\nIt's outta hereeeee!".green
         else
                     puts "I can't toss that, because it doesn't exist ): Try again?".red
@@ -232,18 +241,15 @@ class CLI
 
     def see_my_groceries
         puts "\n"
-        puts "\nWanna see your groceries? (y/n)"
-        want_see = gets.chomp
-        case want_see.downcase
-        when "y"
             Fridgemate.all.each do |fridgemate|
                 if fridgemate.roommate_id == @new_roommate.id
-                x = fridgemate.grocery_id
-                @grocery = Grocery.all.find(x)
-                puts "\nGrocery Name:#{@grocery.name}\n Grcoery Quantity: #{@grocery.quantity}".light_blue  
+                    x = fridgemate.grocery_id
+                    @grocery = Grocery.all.find(x)
+                    puts "\nGrocery Name:#{@grocery.name}\n Grcoery Quantity: #{@grocery.quantity}".light_blue  
                 end
             end
-        end
+            puts "Push the return/enter key to return to main menu"
+            back = gets.chomp
         menu
     end 
 
