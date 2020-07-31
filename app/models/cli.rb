@@ -2,17 +2,33 @@ require 'pry'
 class CLI
 
     def start
-        puts "     ad88888            88          88   ".blue                                                                      
-        puts "     d8                             88                                                        ,d".blue               
-        puts "     88                             88                                                        88".blue               
+        
+        puts "\n"
+        puts "\n"
+        puts "\n"
+        puts "     ad88888            88          88   ".blue
+        sleep(0.1)                                                                      
+        puts "     d8                             88                                                        ,d".blue
+        sleep(0.2)               
+        puts "     88                             88                                                        88".blue              
+        sleep(0.3) 
         puts "   MM88MMM  8b,dPPYba,  88  ,adPPYb,88  ,adPPYb,d8  ,adPPYba, 88,dPYba,,adPYba,  ,adPPYYba, MM88MMM ,adPPYba, ".blue 
+        sleep(0.4)
         puts  "    88     88P'    Y8  88 a8      Y88 a8      Y88 a8P_____88 88P     88      8a         Y8   88   a8P_____88 ".light_blue 
+        sleep(0.5)
         puts  "    88     88          88 8b       88 8b       88 8PP        88      88      88 ,adPPPPP88   88   8PP         ".light_blue
+        sleep(0.4)
         puts  "    88     88          88  8a,   ,d88  8a,   ,d88  8b,   ,aa 88      88      88 88,    ,88   88,   8b,   ,aa  ".cyan
+        sleep(0.3)
         puts  "    88     88          88    8bbdP Y8    YbbdP Y8    Ybbd8   88      88      88   8bbdP Y8    Y888   Ybbd8    ".cyan
+        sleep(0.2)
         puts  "                                       aa,    ,88                                                             ".light_cyan
+        sleep(0.1)
         puts  "                                         Y8bbdP                                                              ".light_cyan
+        sleep(0.1)
         puts "\n                                          Welcome to Fridgemate!\n".light_cyan
+        puts "\n"
+        sleep(0.7)
         create_new_roommate
     end
 
@@ -40,10 +56,13 @@ class CLI
         puts "\n ....."
         sleep(0.5)
         puts "\n ...."
+        sleep(0.4)
         puts "\n ..."
+        sleep(0.3)
         puts "\n .."
+        sleep(0.2)
         puts "\n ."
-        sleep(0.5)
+        sleep(0.1)
         puts "\n______________SCAN_COMPLETED__________________\n".green
         puts "                     Welcome, #{name}".yellow
         if Roommate.exists?(name: name)
