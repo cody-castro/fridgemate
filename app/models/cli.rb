@@ -29,13 +29,13 @@ def create_new_roommate
     puts "\nWhat is your Grocery Budget?".green 
     puts "(Please enter a number 1-500)".light_green
     budget = gets.chomp
-    new_roommate = Roommate.create(name: name, allergy: allergy, budget: budget)
+    @new_roommate = Roommate.create(name: name, allergy: allergy, budget: budget)
     puts "\n         Alrighty! You're all moved in!"
     puts "\n     Looks like you need to go grocery shopping!" 
-    add_groceries(new_roommate)
+    add_groceries
 end
 
-def add_groceries(new_roommate)
+def add_groceries
     puts "\n     What's the name of the grocery item you'd like to purchase?"
     grocery_name = gets.chomp
     puts "Wow! #{grocery_name} sounds delicious!".light_yellow
@@ -49,50 +49,51 @@ def add_groceries(new_roommate)
     puts "Does it contain any allergens? pick one: nuts, dairy, gluten"
     grocery_contains = gets.chomp
     added_grocery = Grocery.create(name: grocery_name, quantity: 4, contains: grocery_contains, quality: grocery_quality, cost: grocery_cost)
-    puts "Enjoy your #{grocery_name}, #{new_roommate.name}!"
+    Fridgemate.create(grocery_id: added_grocery.id, roommate_id: @new_roommate.id)
+    puts "Enjoy your #{grocery_name}, #{@new_roommate.name}!"
     puts "\n Do you want to add some more? (y/n)"
     more_response = gets.chomp
     case more_response.downcase
     when "y"
-        add_groceries(new_roommate)
+        add_groceries
     when "yes"
-        add_groceries(new_roommate)
+        add_groceries
     end
-    puts "All that shopping #{new_roommate.name}, you must be hungry/thirsty!"
-    eat_grocery(new_roommate)
+    puts "All that shopping #{@new_roommate.name}, you must be hungry/thirsty!"
+    eat_grocery
 end
 
 
 
-def eat_grocery(new_roommate)
+def eat_grocery
     puts "Which grocery item would you like to consume?"
     grocery_item = gets.chomp
     grocery_to_eat = Grocery.find_by(name: grocery_item)
     if !grocery_to_eat
         puts "Hey, sorry, I don't think that's a grocery in the fridgemate. Try again?"
-        eat_grocery(new_roommate)
+        eat_grocery
     else
         grocery_to_eat.update(quantity: grocery_to_eat.quantity - 1)
         puts "Would you like to eat another grocery? (y/n)"
         eat_another = gets.chomp
         case eat_another.downcase
             when "y"
-            eat_grocery(new_roommate)
+            eat_grocery
             when "yes"
-            eat_grocery(new_roommate) 
+            eat_grocery
          end
     end
-    toss_grocery(new_roommate)
+    toss_grocery
 end
 
-def toss_grocery(new_roommate)
+def toss_grocery
     puts "Would you like to toss a grocery? (y/n)"
     toss_response = gets.chomp
     case toss_response.downcase 
     when "n"
-    check_quantity(new_roommate)
+    check_quantity
     when "no"
-        check_quantity(new_roommate)
+        check_quantity
     end
     case toss_response.downcase
     when "y"
@@ -102,27 +103,27 @@ def toss_grocery(new_roommate)
             # grocery_to_toss.delete
             if !grocery_to_toss
                 puts "I can't toss that, because it doesn't exist ): Try again?"
-                toss_grocery(new_roommate)
+                toss_grocery
             end
     end
-check_quantity(new_roommate)
+check_quantity
 end
 
-def check_quantity(new_roommate)
+def check_quantity
     puts "Would you like to know how much of a grocery you have left? (y/n)"
         check_response = gets.chomp
         case check_response.downcase
         when "n"
-            see_my_groceries(new_roommate)
+            see_my_groceries
         when "no"
-            see_my_groceries(new_roommate)
+            see_my_groceries
         end
     puts "Which grocery would you like to check?"
     grocery_item = gets.chomp
     grocery_to_check = Grocery.find_by(name: grocery_item)
     if !grocery_to_check
         puts "Hey, sorry, I don't think that's a grocery in the fridgemate. Try again?"
-        check_quantity(new_roommate)
+        check_quantity
     else
         amount = grocery_to_check.quantity
         if amount == 4
@@ -139,27 +140,34 @@ def check_quantity(new_roommate)
         check_another = gets.chomp
         case check_another
             when "y"
-            check_quantity(new_roommate)
+            check_quantity
             when "Y"
-            check_quantity(new_roommate)
+            check_quantity
         end
     end
-    see_my_groceries(new_roommate)
+    see_my_groceries
 end
 
-def see_my_groceries(new_roommate)
-    # binding.pry
+def see_my_groceries
+    puts "\n"
     puts "Wanna see your groceries? (y/n)"
     want_see = gets.chomp
-    show_groceries = Roommate.find_by(name: new_roommate.name)
-    show_groceries.groceries
+    case want_see.downcase
+    when "y"
+        Fridgemate.all.each do |fridgemate|
+            if fridgemate.roommate_id == @new_roommate.id
+            x = fridgemate.grocery_id
+            grocery = Grocery.all.find(x)
+            puts "Grocery Name:#{grocery.name}\n Grcoery Quantity: #{grocery.quantity}".light_blue  
+            end
+        end
+        end 
+     
 
-#         when "n"
-#             puts "bye"
-#         when "N"
-#             puts "bye"
-#         end
 end
+
+
+
 
 end
 
