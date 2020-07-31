@@ -1,48 +1,33 @@
 
-# GroceryMate 
+# Fridgemate
 
+Hi,
+Thanks for checking out Fridgemate; the app that keeps track of your and your roommates' groceries.
 
-## Schema
+## How to start
+Clone this repository and run "ruby ./bin/run.rb" to jump right in.
 
-### Grocery
-name (string)
-quantity (1-4)
-contains (dairy, nuts, gluten)
-quality (1-5)
-cost (Integer 1-100)
-owner = roommate instance
+### You can create your own account by providing your name and 'moving in,' or you can sign in as one of the existing roommates:
+Cody
+Greg
+Karen
+Beyoncé
 
-### Roommate
-name (string)
-allergy (lactose intolerant, nut allergy, gluten free) 
-budget (Integer)
+As a roommate, you'll be able to have many groceries through Fridgemates.
 
-### Classes
-Grocerymate
-Roommates
-Groceries
+## Things you can do as a roommate
+1. As a roommate, you can see how much of a particular grocery item quantity is left
+2. As a roommate, you can add groceries to the Fridgemate
+3. As a roommate, you can see all of your groceries in the Fridgemate
+4. As a roommate, you can consume a grocery which reflects in the groceries quantity 
+5. As a roommate you can toss a grocery item
 
-## Associations Model
-A grocerymate *has many* roommates
-A grocerymate *has many* groceries
-Groceries can *have many* roommates
-Roommates *have many* groceries
+### Stretch Goals
+Create a Store class that can contain many grocery items
+Fridgemate can put grocery items from the Store in to the grocerymate
 
-
-## User stories
-1. As a roommate, I want to see how much of a grocery I have left (Read)
-2. As a roommate, I want to add my groceries to the grocerymate (Create)
-3. As a roommate, I want to to see all the groceries I have in the grocerymate (Read)
-4. As a roommate, I want to consume a grocery which reflects in the groceries quantity (Update) 
-5. As a roommate I want to be able to toss one of my groceries (Delete)
-6. A roommate should be able to see all their groceries (Read)
-7. As a roommate I should be able to share groceries with another roommate (Update)
-8. As a roommate I should be able to see which groceries are share with other roommates (Read)
-9. As a roommate I should be able to gift a grocery to another roommate (Update)
-10. As a roommate I should be able to move out and my groceries become shared among the remaining roommates (Update)
-11. As a roommate I expect to be able to *steal* another roommates groceries if it is under a quarter quantity (Update)
-
-## Stretch Goals
-Store class contains many grocery items
-grocerymate can put grocery items from the Store in to the grocerymate
-
+As a roommate I should be able to share groceries with another roommate (Update)
+As a roommate I should be able to see which groceries are share with other roommates (Read)
+As a roommate I should be able to gift a grocery to another roommate (Update)
+As a roommate I should be able to move out and my groceries become shared among the remaining roommates (Update)
+As a roommate I expect to be able to *steal* another roommates groceries if it is under a quarter quantity (Update)
