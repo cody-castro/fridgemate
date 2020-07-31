@@ -5,7 +5,7 @@ Hi,
 Thanks for checking out Fridgemate; the app that keeps track of your and your roommates' groceries.
 
 ## How to start
-Clone this repository and run "ruby ./bin/run.rb" to jump right in.
+Clone this repository and open in your favorite code editor, run "ruby ./bin/run.rb" to jump right in.
 
 ### You can create your own account by providing your name and 'moving in,' or you can sign in as one of the existing roommates:
 - Cody
