@@ -20,10 +20,10 @@ As a roommate, you'll be able to have many groceries through Fridgemates.
 2. As a roommate, you can add groceries to the Fridgemate
 3. As a roommate, you can see all of your groceries in the Fridgemate
 4. As a roommate, you can consume a grocery which reflects in the groceries quantity 
-5. As a roommate you can toss a grocery item
+5. As a roommate, you can toss a grocery item
 
 ### Stretch Goals
--Create a Store class that can contain many grocery items
+- Create a Store class that can contain many grocery items
 - Fridgemate can put grocery items from the Store in to the grocerymate
 -
 - As a roommate I should be able to share groceries with another roommate (Update)
